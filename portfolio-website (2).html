@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likhitha H U - Portfolio</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            max-width: 800px;
+        }
+
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .crescent-animation {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(79, 172, 254, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 85%;
+            height: 85%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 3;
+            background: #f0f0f0;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .crescent-animation::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+            border-radius: 50%;
+        }
+
+        .crescent-animation::after {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .intro-text {
+            opacity: 0;
+            animation: slideInUp 1s ease-out 0.5s forwards;
+            text-align: center;
+        }
+
+        .intro-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #4facfe);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            color: #4facfe;
+            font-weight: 600;
+        }
+
+        .year-info {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .university {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #projects, #skills, #resume, #contact {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            width: 95%;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-items: center;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .skills-list li {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .resume-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .education-summary {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .certifications {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cert-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            justify-content: center;
+        }
+
+        .contact-link:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .hobbies-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .hobbies-list {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .hobby-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .status-message {
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                gap: 2rem;
+            }
+
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+            }
+
+            .intro-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav li {
+                margin: 0;
+            }
+
+            section {
+                padding: 4rem 1rem 2rem;
+            }
+
+            .hobbies-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="profile-container">
+            <div class="profile-picture">
+                <div class="crescent-animation">
+                    <img src="assets/profile.jpg" alt="Profile Picture" class="profile-img" id="profileImage">
+                </div>
+            </div>
+            <div class="intro-text">
+                <h1>Likhitha H U</h1>
+                <p class="tagline">Aspiring Tech Innovator</p>
+                <p class="year-info">3rd Year Computer Science Engineering Student</p>
+                <p class="university">GSSS Institute Of Engineering And Technology For Women</p>
+                <p class="description">I am passionate about coding, AI, and emerging technologies. My aim is to grow as a software professional and contribute to innovative solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="fade-in">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">AI Portfolio Website</div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Portfolio Website</h3>
+                    <p class="project-description">Modern portfolio website built using Claude AI with interactive features, responsive design, and database integration.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Claude AI</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Database</span>
+                    </div>
+                    <a href="https://github.com/Likhitha0803" class="project-link" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Fake Profile Detection</div>
+                <div class="project-content">
+                    <h3 class="project-title">Fake Profile Detection in Social Networking</h3>
+                    <p class="project-description">Machine learning solution to identify and detect fake profiles on social media platforms using advanced algorithms.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">ML Algorithms</span>
+                    </div>
+                    <a href="https://github.com/Likhitha0803" class="project-link" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Object Detection</div>
+                <div class="project-content">
+                    <h3 class="project-title">Object Detection for Blind People</h3>
+                    <p class="project-description">Assistive technology project using computer vision to help visually impaired individuals navigate their environment safely. (In Progress)</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">React Native</span>
+                    </div>
+                    <a href="https://github.com/Likhitha0803" class="project-link" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Coming Soon</div>
+                <div class="project-content">
+                    <h3 class="project-title">Upcoming Project</h3>
+                    <p class="project-description">Exciting new project in development. Stay tuned for updates on this innovative solution.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">To be announced</span>
+                    </div>
+                    <a href="https://github.com/Likhitha0803" class="project-link" target="_blank">View GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="fade-in">Skills</h2>
+        <div class="skills-container fade-in">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <ul class="skills-list">
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Java</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <ul class="skills-list">
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                    <li>SQLite</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <ul class="skills-list">
+                    <li>Git</li>
+                    <li>AWS</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>OpenCV</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <ul class="skills-list">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Bootstrap</li>
+                    <li>React Native</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 class="fade-in">Resume</h2>
+        <div class="resume-content fade-in">
+            <button class="download-btn" onclick="downloadResume()">Download Resume (PDF)</button>
+            <div class="education-summary">
+                <h3>Education & Experience Summary</h3>
+                <p><strong>Bachelor of Computer Science and Engineering</strong> - Expected Graduation 2027</p>
+                <p><strong>GSSS Institute Of Engineering And Technology For Women</strong></p>
+                <p><strong>CGPA: 8.96</strong> (Up to 4th Semester)</p>
+                <br>
+                <p>Currently in my 3rd year, maintaining excellent academic performance while actively working on innovative projects in AI, machine learning, and web development.</p>
+            </div>
+            
+            <div class="certifications">
+                <h3>Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">Google Cloud Data Analytics</div>
+                    <div class="cert-item">AWS Academy Cloud Foundations</div>
+                    <div class="cert-item">Azure Fundamentals Challenge</div>
+                    <div class="cert-item">Solo Learn C Programming</div>
+                    <div class="cert-item">Infosys Springboard Web Development</div>
+                </div>
+            </div>
+
+            <div class="hobbies-section">
+                <h3>Hobbies & Interests</h3>
+                <div class="hobbies-list">
+                    <div class="hobby-item">?? Dancing</div>
+                    <div class="hobby-item">?? Doodling</div>
+                    <div class="hobby-item">?? Playing Badminton</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="fade-in">Contact</h2>
+        <div class="contact-container fade-in">
+            <div class="contact-form">
+                <h3>Send me a message</h3>
+                <div class="status-message" id="statusMessage"></div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                <div class="contact-links">
+                    <a href="mailto:likhithaumesh8@gmail.com" class="contact-link">
+                        <span>📧</span>
+                        <span>likhithaumesh8@gmail.com</span>
+                    </a>
+                    <a href="tel:+917483543359" class="contact-link">
+                        <span>📱</span>
+                        <span>+91 7483543359</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/likhitha-umesh-8982392a3" class="contact-link" target="_blank">
+                        <span>💼</span>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                    <a href="https://github.com/Likhitha0803" class="contact-link" target="_blank">
+                        <span>🐙</span>
+                        <span>GitHub Profile</span>
+                    </a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/likhitha-umesh-8982392a3" class="social-icon" target="_blank">Li</a>
+                    <a href="https://github.com/Likhitha0803" class="social-icon" target="_blank">Gh</a>
+                    <a href="mailto:likhithaumesh8@gmail.com" class="social-icon">@</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let contactDatabase = [];
+
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        async function sendEmail(contactData) {
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            console.log('Email simulation - Data:', contactData);
+            return { success: true };
+        }
+
+        function saveToDatabase(contactData) {
+            contactDatabase.push({
+                id: Date.now(),
+                ...contactData
+            });
+            console.log('Contact saved:', contactData);
+            console.log('All contacts:', contactDatabase);
+        }
+
+        function showStatus(message, isSuccess = true) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message ${isSuccess ? 'status-success' : 'status-error'}`;
+            statusDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    message: document.getElementById('message').value,
+                    timestamp: new Date().toISOString()
+                };
+                
+                saveToDatabase(formData);
+                const emailResult = await sendEmail(formData);
+                
+                if (emailResult.success) {
+                    showStatus('Thank you for your message! I will get back to you soon.', true);
+                    this.reset();
+                } else {
+                    throw new Error('Email sending failed');
+                }
+                
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showStatus('Sorry, there was an error sending your message. Please try again.', false);
+            } finally {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        function downloadResume() {
+            showStatus('Resume download functionality will be implemented with your actual PDF file.', true);
+        }
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionHeight = section.offsetHeight;
+                
+                if (sectionTop <= 100 && sectionTop + sectionHeight > 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const nameElement = document.querySelector('.intro-text h1');
+        const originalText = 'Likhitha H U';
+        let index = 0;
+        
+        function typeWriter() {
+            if (index < originalText.length) {
+                nameElement.textContent = originalText.substring(0, index + 1);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        setTimeout(() => {
+            nameElement.textContent = '';
+            typeWriter();
+        }, 1000);
+
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                left: ${Math.random() * 100}vw;
+                top: ${Math.random() * 100}vh;
+                animation: float 6s ease-in-out infinite;
+            `;
+            
+            document.body.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        setInterval(createParticle, 3000);
+
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        function viewAllContacts() {
+            console.log('All contacts in database:', contactDatabase);
+            return contactDatabase;
+        }
+
+        function searchContacts(email) {
+            return contactDatabase.filter(contact => 
+                contact.email.toLowerCase().includes(email.toLowerCase())
+            );
+        }
+
+        function getContactsCount() {
+            return contactDatabase.length;
+        }
+
+        window.portfolioFunctions = {
+            viewAllContacts,
+            searchContacts,
+            getContactsCount,
+            downloadResume
+        };
+
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.activeElement.blur();
+            }
+        });
+
+        const observerForImages = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observerForImages.unobserve(img);
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            observerForImages.observe(img);
+        });
+
+        console.log('Portfolio website loaded successfully!');
+        console.log('Contact database initialized. Use window.portfolioFunctions to access management functions.');
+    </script>
+</body>
+</html>
