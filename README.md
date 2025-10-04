@@ -19,5 +19,5 @@ https://Likhitha0803.github.io/ai-portfolio/
 2. Open `index.html` in your browser or use Live Server in VS Code.
 
 ## 📸 Screenshot
-![screenshot](assets/screenshot.png)
+![screenshot](assets/profile.jpg)
 
